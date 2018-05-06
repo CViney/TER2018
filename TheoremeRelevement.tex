@@ -1,0 +1,229 @@
+\section*{Groupe fondamental du cercle, théorème de relèvement}
+	Il s'agit ici d'énoncer et de démontrer le théorème de relèvement des homotopies. 
+	Ensuite, on le mettra en application pour démontrer que le groupe fondamental du cercle 
+	est isomorphe à l'ensemble des entiers relatifs.\\
+	On note :
+	\begin{itemize}[label=\textbullet]
+		\item $I$ le segment $[0;1]\subset\mathbb{R}$ muni de la mesure de \textsc{Lebesgue}.
+		\item $S^{1}$ le cercle de rayon $1$, centré en l'origine et $\Pi_{1}(S^{1})$ son groupe fondamental.
+	\end{itemize}
+	
+	\subsection{Définitions et lemmes préliminaires}
+		\begin{defi}[Revêtement et ouvert trivialisant]~\\
+			Soit $X$ et $\tilde{X}$ deux espaces topologiques et $p:\tilde{X}\longrightarrow X$ une application.\\
+			On dit que $p$ est un \emph{revêtement} de $X$ par $\tilde{X}$ si pour tout $x\in X$, il existe un voisinage 
+			$U \subset X$ de $x$ et une union disjointe $\bigsqcup\limits_{i} \tilde{U}_{i}\subset \tilde{X}$ d'ouverts tels que : 
+			\begin{itemize}[label=\textbullet]
+				\item $p^{-1}(U) = \bigsqcup\limits_{i} \tilde{U}_{i}$
+				\item $p_{|\tilde{U}_{i}} : \tilde{U}_{i} \longrightarrow U$ soit une projection homéomorphe quelque soit $i$.
+			\end{itemize}
+			Lorsque ces conditions sont remplies, on appelle alors $U$ un \emph{voisinage trivialisant} de $x$ par $p$, 
+			ou encore un \emph{ouvert trivialisant} par $p$ dans $X$.
+		\end{defi}
+		
+		\begin{defi}[Relèvement]~\\
+			Soit $X$, $Y$ et $\tilde{X}$ trois espaces topologiques, $F : Y\times I \longrightarrow X$ une homotopie, 
+			$p:\tilde{X}\longrightarrow X$ un revêtement de $X$ par $\tilde{X}$ et $\tilde{F} : Y\times I \longrightarrow \tilde{X}$ 
+			une application.\\
+			On dit que $\tilde{F}$ est un relèvement de $F$ par $p$, si on a : $p\circ\tilde{F}=F$. 
+			Autrement dit, si le diagramme suivant est commutatif :
+			\[\begin{tikzcd}[sep=huge]
+				Y\times I\arrow[mapsto, r, "\tilde{F}"]\arrow[mapsto, rd, "F"]	&	\tilde{X}\arrow[mapsto, d, "p"]	\\
+																				&	X
+			\end{tikzcd}\]
+		\end{defi}
+		
+		\begin{lemm}[Nombre de \textsc{Lebesgue}]~\\
+			Soit $X$ un espace mesurable compact et $(U_{i})_{i\in S}$ un recouvrement ouvert de celui-ci.\\
+			Alors il existe $r>0$ tel que, pour tout $x\in X$, il existe un certain $i\in S$ tel que la boule de centre $x$
+			et de rayon $r$ soit incluse dans $U_{i}$.\\
+			On appelle $r$ le \emph{nombre de \textsc{Lebesgue}} de $(U_{i})_{i\in S}$ dans $X$.
+		\end{lemm}
+		\begin{proof}~\\
+			On note : $B(a; b)$ une boule de centre $a$ et de rayon $b$. Qu'elle soit ouverte ou fermée n'a pas d'importance ici.\\
+			Supposons par l'absurde que pour tout $r>0$, il existe un certain $x_{r}\in X$ tel que $B(x_{r}; r)$ 
+			n'est incluse dans aucun ouvert $U_{i}$ du recouvrement.\\
+			Alors, pour tout $n\in\mathbb{N}$, il existe $x_{n}\in X$ tel que $B(x_{n}, \frac{1}{n})$ n'est incluse dans aucun $U_{i}$. 
+			Comme $X$ est un espace compact, il satisfait la propriété de \textsc{Bolzano-Weierstrass} et on peut extraire de 
+			$(x_{n})_{n\in\mathbb{N}}$ une sous-suite convergente $(x_{\phi(n)})_{n\in\mathbb{N}}$.\\
+			Soit $x$ la limite de $(x_{\phi(n)})$, remarquons en particulier que c'est une valeur d'adhérence de $(x_{n})$.\\
+			Il existe $i_{0}\in S$ tel que $x\in U_{i_{0}}$. Et comme $U_{i_{0}}$ est un ouvert, c'est un voisinage de $x$. Il existe 
+			alors $\epsilon>0$ tel que $B(x;\epsilon)\subset U_{i_{0}}$. Et pour un certain $n$ assez grand : 
+			$B(x_{n}; \frac{1}{n})\subset B(x;\epsilon)\subset U_{i_{0}}$, car $x$ est une valeur d'adhérence de $(x_{n})$.\\
+			Ceci contredit l'hypothèse de départ, et on obtient donc bien le résultat attendu, par l'absurde.
+		\end{proof}
+		
+	\subsection{Théorème de relèvement des homotopies}
+		\begin{theo}~\\
+			Soit $X$, $Y$ et $\tilde{X}$ trois espaces topologiques, $F : Y\times I \longrightarrow X$ une homotopie, 
+			$p:\tilde{X}\longrightarrow X$ un revêtement de $X$ par $\tilde{X}$ et 
+			$\tilde{F}_{0} : Y\times \{0\} \longrightarrow \tilde{X}$ un relèvement de $F_{|Y\times \{0\}}$ par $p$.\\
+			Alors il existe un unique relèvement $\tilde{F} : Y\times I \longrightarrow \tilde{X}$ de $F$ tel que : 
+			$\tilde{F}_{|Y\times \{0\}} = \tilde{F}_{0}$
+		\end{theo}
+		\begin{proof}~\\
+			La preuve du théorème est divisé en quatre parties. La première utilise le lemme précédemment démontré pour effectuer 
+			un découpage convenable de $X$ en ouverts trivialisants, qui sera utilisé dans les deuxième et troisième parties. 
+			Lesquelles permettent d'obtenir une preuve valable pour chaque point ${y_{0}}$ fixé dans $Y$. 
+			La quatrième partie synthétise les résultats des deuxième et troisième et les étend à l'ensemble de l'espace étudié.
+			
+			\subparagraph{Découpage de $X$ en ouverts trivialisants}~\\
+				On fixe $y_{0}\in Y$.\\
+				Comme $F$ est continue : pour tout $t\in I$, on peut trouver un voisinage $N_{t}\times ]a_{t};b_{t}[$ de 
+				$(y_{0};t)$ suffisamment resserré pour avoir $F(N_{t}\times ]a_{t};b_{t}[)$ incluse dans un ouvert trivialisant de 
+				$X$.\\
+				La famille $(]a_{t};b_{t}[)_{t\in[0;1]}$ forme un recouvrement de $I$.\\
+				Comme $I$ est compact, on peut utiliser le lemme précédent pour définir $r>0$, le nombre de Lebesgue de 
+				$(]a_{t};b_{t}[)_{t\in[0;1]}$.\\
+				Quitte à le réduire, on peut supposer que $r$ s'écrit sous la forme $\frac{1}{m}$, avec $m\in\mathbb{N}^{*}$ 
+				sans perte de généralité. \\
+				Il s'en suit que la famille $([t_{i};t_{i+1})])_{i\in\llbracket0;m\rrbracket}$ définie par : $t_{i} = ir$ 
+				constitue un recouvrement de $I$. De plus, pour tout $i\in\llbracket0;m-1\rrbracket$, il existe $t\in I$ 
+				tel que $[t_{i};t_{i+1}]\subset ]a_{t};b_{t}[$. Rappelons que $F(N_{t}\times ]a_{t};b_{t}[)$ est elle-même 
+				incluse dans un ouvert trivialisant de $X$, que nous noterons $U_{i}$.\\
+				En notant $N := \bigcap\limits_{t\in[0;1]} N_{t}$, on obtient par continuité de $F$ l'inclusion : 
+				\[F(N\times [t_{i};t_{i+1}])\subset U_{i} \text{\quad pour tout $i\in\llbracket0;m-1\rrbracket$}\]
+				On a bien découpé l'image de $N\times I$ en parties toutes incluses dans un ouvert trivialisant de $X$ par $p$, 
+				pour $N$ un certain voisinage de $y_{0}\in Y$.
+\pagebreak
+			\subparagraph{Existence sur un voisinage}~\\
+				Pour cette partie et la suivante, on effectue un raisonnement par récurrence sur les 
+				$(t_{i})_{i\in\llbracket{0;m}}$ définis précédemment.\\
+				Démontrons la propriété suivante, pour $i\in\llbracket0;m\rrbracket$ :
+				\begin{center}
+					"Il existe un relèvement $\tilde{F} : N\times [0;t_{i}] \longrightarrow \tilde{X}$ de $F_{|N\times [0,t_{i}]}$ 
+					qui est bien défini sur $[0;t_{i}]$, avec $\tilde{F}_{|N\times \{0\}}= \tilde{F}_{0}$."
+				\end{center}
+				Pour $i=0$, on a $t_{i}=0$, il suffit alors de poser $\tilde{F} = \tilde{F}_{0}$, qui coïncident bien.\\
+				Supposons maintenant qu'on a démontré le résultat pour $i\in\llbracket0;m-1\rrbracket$ 
+				et qu'on veut le démontrer pour $i+1$.\\
+				Par hypothèse de récurrence, $\tilde{F}_{|N\times [0;t_{i}]}$ est bien défini. 
+				Il reste alors à démontrer qu'on peut prolonger $\tilde{F}$ sur $]t_{i};t_{i+1}[$.\\
+				Comme $U_{i}$ est un ouvert trivialisant par $p$ contenant $F(y_{0};t_{i})$, il existe un certain ouvert 
+				$\tilde{U}_{i}\subset \tilde{X}$ contenant le point $\tilde{F}_{t_{i}}(y_{0};t_{i})$ tel que $p$ 
+				projette homéomorphiquement $\tilde{U}_{i}$ sur $U_{i}$. Quitte à resserrer encore $N$, on peut supposer 
+				$\tilde{F}(N\times \{t_{i}\})\subset\tilde{U}_{i}$. Il suffit alors de définir : 
+				\[\begin{array}{lccc}
+					\tilde{F}_{|N\times [t_{i};t_{i+1}]} :	&	N\times [t_{i};t_{i+1}]	&	\longrightarrow	&	\tilde{X}	\\
+															&	(y;t)					&	\mapsto			&	p^{-1}(F(y;t))
+				\end{array}\]
+				Où $p^{-1}$ est un homéomorphisme inverse de $p$ qui envoie $U_{i}$ sur $\tilde{U_{i}}$. 
+				Celui-ci est bien défini, car $p$ est injective quand restreinte à $\tilde{U}_{i}$.\\
+				En $m+1$ pas dans la récurrence, on a démontré l'existence de $\tilde{F}$ sur un voisinage de chaque élément de $Y$.
+				
+			\subparagraph{Unicité en un point de $Y$}~\\
+				Ici, on étudie le relèvement obtenu dans la deuxième partie pour montrer qu'il est unique en chaque point de $Y$. 
+				Comme on ne travaille que sur un seul point, on va alléger les notations en "oubliant" de préciser que les 
+				applications prennent un certain $y_{0}\in Y$ comme donnée. Ainsi, par exemple : 
+				$\tilde{F}(t) = \tilde{F}(y_{0},t)$.\\
+				Soit $\tilde{F}$ et $\tilde{F}'$ deux relèvements de $F$ par $p$ tels que $\tilde{F}(0)=\tilde{F}'(0)$. 
+				Nous allons démontrer la propriété suivante sur les $(t_{i})_{i\in\llbracket0;m\rrbracket}$ 
+				définis dans la première partie de la preuve :
+				\begin{center}
+					"Pour tout $t\in[0;t_{i}]$, on a $\tilde{F}(t)=\tilde{F}'(t)$."
+				\end{center}
+				Pour $i=0$, on a déjà $\tilde{F}(0)=\tilde{F}'(0)$ par hypothèse, ont peut donc directement passer à l'hérédité.\\
+				Supposons maintenant qu'on a démontré le résultat pour $i\in\llbracket0;m-1\rrbracket$ 
+				et qu'on veut le démontrer pour $i+1$.\\
+				Par hypothèse de récurrence, on a le résultat sur $[0;t_{i}]$, il suffit donc de le montrer sur $[t_{i};t_{i+1}]$.\\
+				$F([t_{i};t_{i+1}])$ est contenu dans un ouvert trivialisant $U_{i}$ de $X$. Donc il existe un unique 
+				$\tilde{U}_{i}\subset \tilde{X}$ qui se projette sur $U_{i}$ et pour lequel on a 
+				$\tilde{F}([t_{i};t_{i+1}]) \subset \tilde{U}_{i}$.\\
+				De plus, on a  $\tilde{F}'(t_{i})=\tilde{F}(t_{i})\in \tilde{U}_{i}$. On en déduit la deuxième inclusion : 
+				$\tilde{F}'([t_{i};t_{i+1}]) \subset \tilde{U}_{i}$\\
+				On a : $p\circ\tilde{F}=p\circ\tilde{F}'=F$, par définition d'un relèvement. Comme $p$ est une projection de 
+				$\tilde{U}_{i}$, elle y est notamment injective. On a alors $\tilde{F}=\tilde{F}'$ sur $[t_{i};t_{i+1}]$.\\
+				En $m+1$ pas dans la récurrence, on a démontré l'unicité de $\tilde{F}$ sur chaque point de $Y$ où elle est définie.
+\pagebreak
+			\subparagraph{Existence et unicité sur $Y\times I$ tout entier}~\\
+				Nous venons de démontrer que pour chaque point de $Y$, il existe un voisinage $N\times I$ tel que l'application 
+				$\tilde{F}$ recherchée est bien définie sur ce voisinage. Elle est de plus unique en chaque point, 
+				indépendamment du voisinage choisi. En construisant de telles relèvements $\tilde{F}$ pour chaque point de $Y$, 
+				on remarque que, par unicité, ceux-ci coïncident nécessairement lorsque deux voisinages se recouvrent.\\
+				On a ainsi un unique recouvrement $\tilde{F}$ défini sur tout l'ensemble $Y\times I$. 
+				Il est bien continue, car continue sur un voisinage de n'importe quel point.
+		\end{proof}
+		
+	\subsection{Application au groupe fondamental du cercle}
+		Pour démontrer que le groupe fondamental du cercle est isomorphe à l'ensemble des entiers relatifs, 
+		on va utiliser deux cas particuliers du théorème de relèvement :
+		\begin{coro}[Relèvement des chemins]~\\
+			Dans le cas où $Y$ est un point, $F$ peut être vue comme un chemin et on peut énoncer le théorème de relèvement 
+			comme suit :\\
+			Soit $X$, $Y$ et $\tilde{X}$ trois espaces topologiques, $F : I \longrightarrow X$ un chemin, 
+			$p:\tilde{X}\longrightarrow X$ un revêtement de $X$ par $\tilde{X}$ et $\tilde{F}_{0}\in \tilde{X}$ tel que 
+			$p(\tilde{F}_{0})=F(0)$.\\
+			Alors il existe un unique chemin $\tilde{F} : I \longrightarrow \tilde{X}$ de $F$ tel que : 
+			$\tilde{F}(0) = \tilde{F}_{0}$
+		\end{coro}
+		\begin{coro}[Relèvement des homotopies de chemins]~\\
+			Dans le cas où $Y=I$, $F$ peut être vue comme une homotopie de chemins et on peut énoncer le théorème de relèvement 
+			comme suit :\\
+			Soit $X$, $Y$ et $\tilde{X}$ trois espaces topologiques, $F : I\times I \longrightarrow X$ une homotopie de chemins, 
+			$p:\tilde{X}\longrightarrow X$ un revêtement de $X$ par $\tilde{X}$ et $\tilde{F}_{0} : I \longrightarrow \tilde{X}$ 
+			un chemin dans $\tilde{X}$ avec $p(\tilde{F}_{0}) = F_{|I\times\{0\}}$.\\
+			Alors il existe un unique relèvement $\tilde{F} : I\times I \longrightarrow \tilde{X}$ de $F$ tel que : 
+			$\tilde{F}_{|I\times \{0\}} = \tilde{F}_{0}$.
+		\end{coro}
+\pagebreak
+		\begin{theo}[Groupe fondamental du cercle]~\\
+			$\Pi_{1}(S^{1})$ est un groupe cyclique infini. Autrement dit : $\Pi_{1}(S^{1})\simeq \mathbb{Z}$.
+		\end{theo}
+		\begin{proof}~\\
+			Comme la démonstration reste vraie quelque soit le point de base choisi pour définir le groupe fondamental, 
+			on décide arbitrairement de travailler avec le point de base $x_{0}=(1;0)$ dans $S^{1}$.\\
+			Pour commencer cette preuve, il faut introduire trois objets qui seront utiles : \bigskip\\
+			$\begin{array}{l|ccl}
+				\text{\quad \textbullet \quad le revêtement \quad}p:	&	\mathbb{R}	&	\longrightarrow	&	
+				S^{1}	\\
+																		&	s			&	\longmapsto		&	
+				(\cos(2\pi s),\sin(2\pi s))
+			\end{array}$\bigskip\\
+			$\begin{array}{l|ccl}
+				\text{\quad \textbullet \quad La famille d'homotopies $(w_{n})_{n\in\mathbb{N}^{*}}$ définie par \quad}w_{n} :	&	
+				\mathbb{R}	&	\longrightarrow	&	S^{1}	\\
+																																&	
+				s			&	\mapsto			&	(\cos(2\pi ns),\sin(2\pi ns))
+			\end{array}$\bigskip\\
+			$\begin{array}{l|ccl}
+				\text{\quad \textbullet \quad Les relèvements par $p$ associés $(\tilde{w}_{n})_{n\in\mathbb{N}^{*}}$ 
+				définis par \quad}\tilde{w}_{n} :	&	\mathbb{R}	&	\longrightarrow	&	\mathbb{R}	\\
+													&	s			&	\mapsto			&	ns
+			\end{array}$\bigskip\\
+			Remarquons que pour tout $n\in\mathbb{N}^{*}$, on a dans $\Pi_{1}(S^{1})$ l'égalité de classes d'équivalences : 
+			$[w]^{n}=[w_{n}]$ où $w : s \mapsto (\cos(2\pi s);\sin(2\pi s))$ est le lacet faisant le tour de $S^{1}$ 
+			dans le sens trigonométrique et à vitesse constante.\\ 
+			Pour obtenir le résultat attendu, nous allons démontrer que pour tout lacet $f$ dans $S^{1}$, 
+			il existe un unique entier $n$ tel que $[f]=[w]^{n}=[w_{n}]$.\\
+			Prenons donc $f$ un lacet sur $S^{1}$ de point de base $x_{0}$, représentant de sa classe d'équivalence $[f]$.\\
+			D'après le corollaire 1, il existe un unique chemin $\tilde{f}:\mathbb{R}\longrightarrow\mathbb{R}$ qui relève $f$ par 
+			$p$ et tel que $\tilde{f}(0)=0$.\\
+			Remarquons que $p(\tilde{f}(1))=f(1)=x_{0}$ et $p^{-1}(x_{0})=\mathbb{Z}$. On en déduit que $\tilde{f}(1)\in\mathbb{Z}$. 
+			Notons alors $n:=\tilde{f}(1)$.\\
+			$\tilde{w}_{n}$ est un autre chemin dans $\mathbb{R}$ de mêmes points d'arrivé et de départ que $\tilde{f}$. 
+			Comme $\mathbb{R}$ est connexe, on a $\tilde{w}_{n}\simeq\tilde{f}$ par l'homotopie 
+			$(s,t)\mapsto(1-t)\tilde{f}(s)+t\tilde{w}_{n}(s)$.\\
+			En projetant par $p$, on obtient bien $[f]=[w_{n}]=[w]^{n}$.\\
+			Il reste à montrer que $n:=\tilde{f}(1)$ est uniquement déterminé, quelque soit le représentant de $[f]$ 
+			qu'on a choisi.\\
+			Soit alors $g\in[f]$ et notons $m:=\tilde{g}(1)$ défini comme pour le cas de $f$.\\
+			Comme $f$ et $g$ sont homotopes, on en déduit que : $w_{n}\simeq w_{m}$.\\
+			Soit $(F_{t})_{t\in I}$ une homotopie de chemins telle que $F_{0}=w_{m}$ et $F_{1}=w_{n}$.\\
+			D'après le corollaire 2, il existe un unique relèvement $(\tilde{F}_{t})_{t\in I}$ de $(F_{t})$ tel que 
+			$\tilde{F}_{t}(0)=0$ pour tout $t\in I$.\\ 
+			Mais d'après le corollaire 1, $\tilde{F}_{t}$ est uniquement déterminé à $t$ fixé. Et en particulier, 
+			$\tilde{F}_{0}=\tilde{w}_{m}$ et $\tilde{F}_{1}=\tilde{w}_{n}$.\\
+			De plus, $(\tilde{F}_{t})$ est une homotopie de chemins. Donc la valeur de $\tilde{F}_{t}(1)$ ne dépend pas de $t$. 
+			D'où\linebreak $m=\tilde{F}_{0}(1)=\tilde{F}_{1}(1)=n$. Ce qui conclu l'unicité.\\
+			On a bien construit un isomorphisme entre $\Pi_{1}(S^{1})$ et $\mathbb{Z}$ :
+			\[\begin{array}{ccl}
+				\Pi_{1}(S^{1})	&	\simeq	&	\mathbb{Z}	\\~
+				[f]				&	\mapsto	&	n:=\tilde{f}(1)
+			\end{array}\]
+			où $\tilde{f}:\mathbb{R}\longrightarrow\mathbb{R}$ est l'unique relèvement d'un certain élément de $[f]$ tel que 
+			$\tilde{f}(0)=0$.
+			
+			Comme vérifié, précédemment, $n$ ne dépend pas de l'élément de $[f]$ choisi et tous les lacets $g$ tels que 
+			$g\simeq w_{n}$ appartiennent à $[f]$.
+		\end{proof}
+\end{document}
