@@ -49,14 +49,21 @@
 	
 	\pagenumbering{roman}
 	\renewcommand{\contentsname}{Sommaire}
-	\setcounter{tocdepth}{1}
+	\setcounter{tocdepth}{2}
 	\tableofcontents
 	\newpage\pagenumbering{arabic}
 	
-	\input{GroupeStandard.tex}
-	\input{TheoremeRelevement.tex}
-	\input{VanKampenSurjectif.tex}
-	\input{LemmeVanKampen1.tex}
-	\input{LemmeVanKampen2.tex}
+	\section{Groupes standards et homotopies}
+	    \input{GroupeStandard.tex}
+	
+	\section{Théorème de relèvement des homotopies}
+	    \input{TheoremeRelevement.tex}
+	
+	\section{Produits libres}
+	    \input{VanKampenSurjectif.tex}
+	
+	\section{Théorème de Van Kampen}
+	    \input{LemmeVanKampen1.tex}
+	    \input{LemmeVanKampen2.tex}
 
 \end{document}
