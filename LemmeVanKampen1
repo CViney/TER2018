@@ -1,0 +1,101 @@
+\subsection{Version complète du théorème}
+	Nous venons de démontrer la première partie du théorème de Van Kampen, qui assure la surjectivité de $\Phi$. Vient à présent le théorème dans sa forme complète :
+	\begin{theo}[Théorème de \textsc{Van Kampen} (Complet)]~\\
+  	Soit $X$ un espace topologique et $x_0 \in X$, $(A_\alpha)_{\alpha\in S}$ une famille d'ouverts tels que :
+		\begin{itemize}[label=\textbullet]
+			\item $x_0 \in A_\alpha \cap A_\beta$ pour tous $\alpha$ et $\beta$ dans $S$.
+			\item $\bigcup\limits_{\alpha\in S}A_\alpha = X$.
+		\end{itemize}
+		Soit $\Phi$ DEF\\
+		Alors si $A_\alpha \cap A_\beta$ est connexe par arcs pour tous $\alpha$ et $\beta$ dans $S$, $\Phi$ est surjective.\\
+		De plus, si $A_\alpha \cap A_\beta \cap A_\gamma$ est connexe par arcs pour tous $\alpha$, $\beta$ et $\gamma$ dans $S$, le noyau de $\Phi$ est exactement le sous-groupe distingué $N:=<<i_{\alpha\beta}(w)i_{\beta\alpha}(w)^{-1} | w\in\Pi_{1}(A_\alpha \cap A_\beta), (\alpha, \beta)\in S^2>>$. En définissant pour tous $\alpha$ et $\beta$ dans $S$ les applications :
+		\[\begin{array}{l|ccl}
+			i_{\alpha\beta} :   &   \Pi_1 (A_\alpha \cap A_\beta)       &   \longrightarrow &   \Pi_1 (A_\alpha)    \\
+													&   [w]_{\Pi_1 (A_\alpha \cap A_\beta)} &   \longmapsto     &   [w]_{\Pi_1 (A_\alpha)}
+		\end{array}\]
+        En particulier, ceci implique l'existence d'un isomorphisme $\overline{\Phi}$ décrit par le diagramme commutatif suivant :
+        \[\begin{tikzcd}[sep=huge]
+            \ast_\alpha A_\alpha\arrow[two heads, r, "\Phi"]\arrow[hook, d] &   \Pi_1 (X)   \\
+            \faktor{\ast_\alpha A_\alpha}{N}\arrow[ru, "\simeq", "\overline{\Phi}"']
+        \end{tikzcd}\]
+    \end{theo}
+    
+    La surjectivité de $\Phi$ a déjà été démontrée précédemment. La deuxième partie de la preuve du théorème peut être réécrite comme le résultat suivant :
+    \begin{center}
+        "Pour tous $g$ et $h$ dans $\ast_\alpha A_\alpha$, $\Phi(g)=\Phi(h) \iff g\cdot h^{-1}\in N$"
+    \end{center}
+    Pour démontrer ce résultat, nous allons définir une relation d'équivalence qui nous servira d'intermédiaire. L'application de deux lemmes consécutifs permettra alors d'obtenir une preuve du théorème.
+    
+\subsection{Preuve de la deuxième partie du théorème}
+
+    Pour tout lacet $f$, on notera $[f]_E$ la classe d'équivalence de ce lacet dans le groupe fondamental de $E$ (avec $x_0$ comme point d'attache).
+    
+    On définit l'application $\Psi$ qui sera utile de nombreuses fois dans cette partie :
+    \[\begin{array}{l|ccl}
+        \Psi :  &   \mathcal{M}         &   \longrightarrow &   \ast_\alpha A_\alpha    \\
+                &   (f_1, \ldots, f_k)  &   \longmapsto     &   f_1\cdot\ldots\cdot f_k
+    \end{array}\]
+    Ainsi, $\Psi(f)$ est le mot réduit naturellement associé à $f$.
+    
+    \begin{defi}[Equivalence de factorisations]\label{def}~\\
+        Soit $\mathcal{M}$ l'ensemble des listes finies d'éléments de $\bigcup\limits_{\alpha\in S} \Pi_1 (A_\alpha)$. \\
+        Remarquons que $\ast_\alpha A_\alpha$ est un sous-ensemble de $\mathcal{M}$.\\
+        Pour tout lacet $f$ évoluant dans $X$, on appelle factorisation de $[f]_X$ tout élément $([f_1]_{A_{\alpha_{1}}},\ldots,[f_k]_{A_{\alpha_{k}}})$ de $\mathcal{M}$ tel que $\Phi\circ\Psi(([f_1]_{A_{\alpha_{1}}},\ldots,[f_k]_{A_{\alpha_{k}}})) = [f]_X$. On notera $\mathcal{M}(f)$ l'ensemble des factorisations de $f$.\\
+        On remarque que les surjectivités de $\Phi$ et $\Psi$ impliquent que tout élément de $\mathcal{M}$ est factorisation d'un élément de $\Pi_1 (X)$.
+        
+        Dans $\mathcal{M}$, on définit par induction une relation d'équivalence. Deux factorisations $([f_1]_{A_{\alpha_1}} ,\ldots, [f_k]_{A_{\alpha_k}})$ et $g$ sont équivalentes si on a une des deux égalités :
+        \begin{itemize}[label=\textbullet]
+            \item[1.] $g = (f_1 ,\ldots, [f_i.f_{i+1}]_{A_{\alpha_i}} ,\ldots, f_k)$ pour $\alpha_i= \alpha_{i+1}$ et $i\in\llbracket 1,k-1\rrbracket$.
+            \item[2.] $g = (f_1 ,\ldots, [f_i]_{A_{\alpha'}} ,\ldots, f_k)$ pour $f_i$ un lacet dans $A_{\alpha'}\cup A_{\alpha_i}$.
+        \end{itemize}
+        Pour obtenir une vraie relation d'équivalence, on autorise de plus qu'il y ait plusieurs "étapes" entre deux éléments de $\mathcal{M}$ (transitivité) et qu'on puisse inverser les rôles des deux intervenants dans les égalités (symétrie). La réflexivité provient de l'égalité 2., en prenant $\alpha' = \alpha_i$.\\
+        On ne développe pas plus le fait qu'on ait bien une relation d'équivalence, car c'est un corollaire direct du lemme \ref{2} démontré plus tard.
+    \end{defi}
+        
+    On peut maintenant énoncer les deux lemmes qui démontre la deuxième partie du théorème de \textsc{Van Kampen}.
+    \begin{lemm}\label{1}~\\
+        Si $g$ et $h$ sont deux éléments de $\mathcal{M}$, alors on a l'équivalence :
+        \[\Phi\circ\Psi(g)=\Phi\circ\Psi(h)\iff g\sim h\]
+        
+        Autrement dit, deux éléments de $\mathcal{M}$ sont équivalents si et seulement si ils sont factorisation d'un même élément.
+    \end{lemm}
+    \begin{lemm}\label{2}~\\
+        Si $g$ et $h$ sont deux éléments de $\ast_\alpha A_\alpha$, alors on a l'équivalence :
+        \[g\sim h \iff g.h^{-1}\in N\]
+    \end{lemm}
+
+    Comme $N$ est un groupe distingué, "$g.h^{-1}\in N$" revient à dire que $g$ et $h$ sont placés dans la même classe d'équivalence lors du passage au quotient $\ast_\alpha A_\alpha\hookrightarrow\faktor{\ast_\alpha A_\alpha}{N}$. Les lemmes \ref{1} et \ref{2} garantissent donc bien la véracité du théorème de \textsc{Van Kampen}.
+    
+    \begin{proof} (Du lemme \ref{1})
+        Pour le résultat $\Phi\circ\Psi(g)=\Phi\circ\Psi(h)\leftarrow g\sim h$, il suffit de remplacer $g$ par sa valeur dans les égalités 1. et 2. de la définition \ref{def}. En composant par $\Psi$ puis $\Phi$, on obtient immédiatement le résultat. Deux mots équivalents sont donc factorisation d'un même objet, par définition d'une factorisation.
+        
+        Pour la réciproque, nous allons démontrer que deux factorisations d'un même élément $[f]_{A_{\alpha}}$ sont équivalentes en construisant des factorisations intermédiaires, toutes équivalentes entre elles. Ceci se fait en trois étapes. D'abord, nous découperons l'intervalle $I\times I$ de la même manière que pour la preuve de la surjectivité, afin d'isoler des "morceaux" de lacet qui nous conviennent. Ensuite, nous utiliserons le pavage obtenu pour créer de multiples lacets intermédiaires, ce sera l'occasion de faire plusieurs remarques. Enfin, nous montrerons qu'il est possible de passer d'une factorisation à l'autre en utilisant uniquement les égalités 1. et 2. de la définition \ref{def}. Ceci permettra de conclure la preuve.
+        
+            \subparagraph{Découpage de $I\times I$}~\\
+                Soient $([f_1]_{A_{\alpha_{1}}},\ldots,[f_k]_{A_{\alpha_{k}}})$ et $([f'_1]_{A_{\alpha'_{1}}},\ldots,[f'_k]_{A_{\alpha'_{l}}})$ deux factorisations de $[f]_{X}$. On note $F$ l'homotopie qui lie $f_{1}\ldots f_{k}$ et $f'_{1}\ldots f'_{l}$.\\
+                Les $A_\alpha$ étant des ouverts et $F$ une application continue, les pré-images $U_\alpha = F^{-1}(A_\alpha)$ sont des ouverts et par conséquent : $\bigcup\limits_{\alpha\in S} U_\alpha$ forme un recouvrement du compact $I\times I$.\\
+                Or, le lemme du nombre de \textsc{Lebesgue} indique qu'il existe un réel strictement positif $r$ tel que pour tout $x$ dans $I\times I$, la boule ouverte $B(x,r)$ est incluse dans un certain ouvert $U_\alpha$. On peut donc découper $I\times I$ en rectangles $R_{ij} := (s_{i-1},s_i)\times(t_{j-1},t_j)$ inclus dans des ouverts $U_\alpha$.\\
+                Avec $s_0<s_1<\ldots<s_m$, $t_1<t_2<\ldots t_n$ et pour tous $i$ et $j$ strictement positifs : $s_i-s_{i-1}<\sqrt{\frac{r}{2}}$ et $t_j-t_{j-1}<\sqrt{\frac{r}{2}}$.\\
+                Avec un tel découpage et pour chaque couple $(i,j)$, il existe un $\alpha\in S$ tel que $F(R_{ij})\subset A_\alpha$. On note alors $A_{ij} := A_\alpha$.\\
+                Quitte à affiner le découpage, on peut supposer que pour tous $i \leq k$ et $j \leq l$, il existe des entiers $k_i$ et $l_j$ tels que :
+                \begin{itemize}[label=\textbullet]
+                    \item $F_{|[s_{k_i},s_{k_{i+1}}]\times\{0\}}=f_{i+1}$ pour $0\leq i \leq k-1$.
+                    \item $F_{|[s_{l_j},s_{l_{j+1}}]\times\{0\}}=f'_{j+1}$ pour $0\leq j \leq l-1$.
+                \end{itemize}
+                Ainsi, $F(s_{k_i},0) = x_0$ et $F(s_{l_j},0) = x_0$ pour tous $i$ et $j$.\\
+                Enfin, comme $F$ est continue et que les $A_{ij}$ sont des ouverts, il existe un $\epsilon$ strictement positif tel que si on remplace $[s_{i-1},s_{i}]\times[t_{j-1},t_j]$ par $[s_{i-1}+\epsilon, s_{i}+\epsilon]\times[t_{j-1},t_j]$ pour tous les $j$ pairs, on ne perd aucune propriété déjà acquise sur notre pavage. Quitte à rajouter une ligne (pour que $n$ soit impair), on a obtenu un découpage satisfaisant.\\
+                Maintenant qu'on a ce pavage, on renomme les rectangles comme dans la figure ci-dessous :
+                \renewcommand{\arraystretch}{3}
+                \setlength{\tabcolsep}{0.1cm}
+                \begin{table}[h]\centering\begin{tabular}{|p{.cm}cp{2cm}cp{2cm}cp{2cm}|}
+									\hline
+									$R_{m(n-1)+1}$	&	\multicolumn{1}{|c}{}	&	$R_{m(n-1)+2}$	&	\multicolumn{1}{|c}{}	&	\multicolumn{1}{c}{$\hdots$}	&   \multicolumn{1}{|c}{}   &       $R_{mn}$            \\  \hline
+									$R_{m(n-2)+1}$      &   \multicolumn{1}{c|}{}   &   $R_{m(n-2)+2}$      &   \multicolumn{1}{c|}{}   &  \multicolumn{1}{c}{$\hdots$}   &   \multicolumn{1}{c|}{}   &   $R_{m(n-1)}$        \\  \hline\multicolumn{1}{|c}{$\vdots$}  &   \multicolumn{1}{|c}{}   &   \multicolumn{1}{c}{$\vdots$}  &   \multicolumn{1}{|c}{}   &     &   \multicolumn{1}{|c}{}   &   \multicolumn{1}{c|}{$\vdots$}  \\  \hline
+                    $R_{m+1}$           &   \multicolumn{1}{c|}{}   &   $R_{m+2}$           &   \multicolumn{1}{c|}{}   &   \multicolumn{1}{c}{$\hdots$}  &   \multicolumn{1}{c|}{}   &       $R_{2m}$            \\  \hline
+                    $R_1$               &   \multicolumn{1}{|c}{}   &   $R_2$               &   \multicolumn{1}{|c}{}   &   \multicolumn{1}{c}{$\hdots$}  &   \multicolumn{1}{|c}{}   &   $R_m$   \\  \hline
+                \end{tabular}\end{table}
+    \end{proof}
+    
+    \begin{proof} (Du lemme \ref{2})
+    
+    \end{proof}
