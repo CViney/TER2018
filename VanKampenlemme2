@@ -1,0 +1,38 @@
+\section{lemme 2}
+
+\begin{lemm}
+$g$ et $h$ sont des mots réduits. $g\sim h\Leftrightarrow gh^{-1}\in N$
+\end{lemm}
+
+\begin{proof}
+Supposons $gh^{-1}\in N$. Puisque Ker($\Phi$) est un sous-groupe distingué qui contient les élements qui engendrent $N$, alors $N\subset $Ker($\Phi$). De plus, $f\in $Ker($\Phi$)$\Rightarrow f\sim 1_{\ast_\alpha A_\alpha}$ par le lemme 1 (même image par $\rho$), d'où : $gh^{-1}\in N\Rightarrow\exists f\in N\subset $Ker($\Phi$) tel que $g=fh\sim 1_{\ast_\alpha A_\alpha}h\Rightarrow g\sim h$.
+\\À l'inverse, supposons que $g\sim h$, alors il existe une suite de mots $(\mu_i)_{0\leq i\leq n}$ équivalents  tels qu'on a pu les construire par algorithme lors de la preuve du lemme 1, qui lient $g=\mu_0$ et $h=\mu_n$. On définit alors l'application suivante :
+\begin{center}
+    $\begin{array}{ccccl}
+\Psi & : & \mathcal{M} & \to & \ast_\alpha A_\alpha \\
+ & & g_1\ldots g_m & \mapsto & g_1\ast\ldots\ast g_m\\
+\end{array}$
+\end{center}
+C'est l'application qui à tout mot associe son mot réduit. Si on montre que pour deux mots consécutifs dans l'algorithme $\mu_i$ et $\mu_{i+1}$ on a $\Psi(\mu_i)\Psi(\mu_{i+1})^{-1}\in N$, alors on aura le résultat souhaité puisque :
+\\$\begin{array}{lll}
+gh^{-1} & =\Psi(g)\Psi(h)^{-1} & $car $g$ et $h$ sont des mots réduits$\\
+& =\Psi(g)\ast\Psi(\mu_1)^{-1}\ast\Psi(\mu_1)\ast\Psi(\mu_2)^{-1}\ast\ldots\ast\Psi(\mu_{n-1})\ast\Psi(h)^{-1} & $car $(\ast_\alpha A_\alpha, \ast)$ est un groupe$\\
+& =(\Psi(g)\ast\Psi(\mu_1)^{-1})\ast(\Psi(\mu_1)\ast\Psi(\mu_2)^{-1})\ast\ldots\ast(\Psi(\mu_{n-1})\ast\Psi(h)^{-1})\\
+\end{array}$
+\\et donc $gh^{-1}$ s'écrit comme un produit d'éléments du groupe $N$  et $gh^{-1}\in N$.
+
+Par définition, nous avons deux cas à traiter (les actions inverses se démontrant de manière identique) :
+\\a) $\mu_i=[f_1]\ldots[f_j]_{A_{\alpha_j}}[f_{j+1}]_{A_{\alpha_{j+1}}}\ldots[f_k]$ et $\mu_{i+1}=[f_1]\ldots[f_j\centerdot f_{j+1}]{A_{\alpha_j}}\ldots[f_k]$ avec $\alpha_i=\alpha_{i+1}$.
+\\ On a alors :
+\\$\begin{array}{lll}
+\Psi(\mu_{i+1})^{-1} & =\Psi([f_{i+2}]\ldots[f_k])^{-1}\ast [f_j\centerdot f_{j+1}]_{A_{\alpha_j}}^{-1}\ast\Psi([f_1]\ldots[f_{j-1}])^{-1}\\
+& =\Psi([f_{i+2}]\ldots[f_k])^{-1}\ast [f_{j+1}]_{A_{\alpha_j}}^{-1}\ast [f_j]_{A_{\alpha_j}}^{-1}\ast\Psi([f_1]\ldots[f_{j-1}])^{-1}\\
+& =\Psi(\mu_i)^{-1}\\
+\end{array}$
+
+Et donc $\Psi(\mu_i)\Psi(\mu_{i+1})^{-1}=1_{\ast_\alpha A_\alpha}\in N$
+\\b) $\mu_i=[f_1]\ldots[f_j]_{A_{\alpha_j}}\ldots[f_k]$ et $\mu_{i+1}=[f_1]\ldots[f_j]_{A_\beta}\ldots[f_k]$ avec $f_j$ lacet dans $A_{\alpha_j}\bigcap A_\beta$.
+\\On a alors :
+${\Psi(\mu_i)=\Psi([f_1]\ldots[f_{j-1}])\ast[f_j]_{A_{\alpha_j}}\ast\Psi([f_{i+1}]\ldots[f_k])}$ et  \\${\Psi(\mu_{i+1})^{-1}=\Psi([f_{i+1}]\ldots[f_k])^{-1}\ast [f_j]_{A_\beta}^{-1}\ast\Psi([f_1]\ldots[f_{j-1}])^{-1}}$ d'où il vient que :
+\\${\Psi(\mu_i)\Psi(\mu_{i+1})^{-1}=\Psi([f_1]\ldots[f_{j-1}])\ast [f_j]_{A_{\alpha_j}}\ast[f_j]_{A_\beta}^{-1}\ast\Psi([f_1]\ldots[f_{j-1}])^{-1}\in N}$ car conjugué d'un élément du sous-groupe distingué $N$.
+\end{proof}
