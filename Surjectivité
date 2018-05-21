@@ -1,0 +1,153 @@
+\section{Cadre de travail}
+
+On note $I$ l'intervalle unité $[0,1]$. $X$ désgine un espace topologique contenant le point $x_0 \in X$. $(A_\alpha)_{\alpha \in S}$ est un ensemble d'ouverts tels que $x_0 \in A_\alpha \bigcap A_\beta$ pour tout ${\alpha$, $\beta \in S}$ et $\underset{\alpha\in S}\bigcup A_\alpha = X$.
+
+Pour tout ouvert $O$ contenant $x_0$, on notera pour simplifier : $\pi_1(O,x_0)=\pi_1(O)$
+
+\section{Produit libre de groupes}
+
+\begin{defi}
+On note $\ast_\alpha A_\alpha$ l'ensemble des mots réduits sur $(A_\alpha)_{\alpha \in S}$ :
+\begin{center}
+    $\ast_\alpha A_\alpha :=\{g_1\ldots g_m / m\in\mathbb{N}, \forall i<m : \pi_1(A_{\alpha_i})\neq\pi_1(A_{\alpha_{i+1}}), \forall i\in\mathbb{N}^{*} : g_i\in\pi_1(A_{\alpha_i}), \alpha_i\in S\}$
+\end{center}
+m est appelé la $taille$ du mot. Si $m=0$, on note $1_\ast$ le $mot$ $vide$. Pour simplifier les notations, on notera $G_i:=\pi_1(A_{\alpha_i}), \forall i\in\mathbb{N}^{*}$.
+On munit cet ensemble d'une loi $\ast$ définie par induction sur la taille des mots :
+\\i) $g_1\ast g_2 = \left\lbrace
+\begin{array}{ll}
+g_1g_2, & $si $ G_1\neq G_2\\
+g_1\cdot g_2, & $si $G_1=G_2$ et $g_1\cdot g_2 \neq 1_{G_1}$ où $\cdot$ est le produit dans $G_1\\
+1_\ast & $sinon$\\
+\end{array}\right.$
+
+\\ii) $g_1\ast 1_\ast=g_1$
+\\iii) $g_1\ldots g_m\ast h_1\ldots h_n=g_1\ldots g_{m-1}\ast((g_m\ast h_1)\ast h_2\ldots h_n)$
+\end{defi}
+
+\begin{prop}
+$(\ast_\alpha A_\alpha, \ast)$ est un groupe.
+\end{prop}
+\begin{proof}
+Naturellement, l'élement neutre est $1_\ast$ et les inverses sont définis par : ${(g_1\ldots g_m)^{-1}=g_m^{-1}\ldots g_1^{-1}}$
+\\Pour l'associativité nous allons avoir besoin du lemme suivant :
+\begin{lemm}
+$\forall g, h \in \ast_\alpha A_\alpha$, on pose : $L_g : h \mapsto g\ast h$. Alors ${L_{g\asth}=L_g\circ L_h}$
+\end{lemm}
+Avec ce résultat il vient que : $(f\ast g)\ast h=L_{f\ast g}(h)=L_f(L_g(h))=f\ast (g\ast h)$ et l'associtivié est démontrée. Il reste à démontrer le lemme :
+\begin{proof}
+On va procéder par récurrence. Soient $g=g_1\ldots g_m$ et $h=h_1\ldots h_n$ deux mots de longueur maximale $N:=max(m,n)$ et $f=f_1\ldots f_l$ un mot quelconque. Notons $G_g$, $G_h$ et $G_f$ les $\pi_1(A_\alpha)$ tels que $g_1\in G_g$, $h_1\in G_h$ et $f_1\in G_f$.\\
+Initialisation : Si $g$ ou $h$ est le mot vide, on conclut en remarquant que $L_{1_\ast}=\mathbbm{1}_{\ast_\alpha A_\alpha}$. On peut donc supposer que $min(m,n)>0$. Si $N=1$, on a $n=m=1$.
+\\Si $G_g\neq G_h :$
+\\$\begin{array}{lll}
+L_{g_1\ast h_1}(f) & =g_1h_1\ast f\\
+& =g_1\ast((h_1\ast f_1)\ast f_2\ldots f_l)\\
+& =g_1\ast h_1\ast f\\
+& =L_{g_1}\circ L_{h_1}(f)\\
+\end{array}$
+
+\\Si $G_h\neq G_f :$
+\\$\begin{array}{lll}
+L_{g_1}\circ L_{h_1}(f) & =g_1\ast(h_1\ast f_1\ldots f_l)\\
+& =g_1\ast h_1f_1\ldots f_l\\
+& =(g_1\ast h_1)\ast f_1\ldots f_l\\
+& =L_{g_1\ast h_1}(f)\\
+\end{array}$
+
+Si $G_g=G_h=G_f$, soit $g\cdot h=1_{G_g}$ et on se rapporte au cas du mot vide précédemment traité pour conclure, soit $g\cdot h\neq1_{G_g}$ et alors :
+\\$\begin{array}{lll}
+L_{g_1\ast h_1}(f) & =g_1\cdot h_1\ast f_1\ldots f_l\\
+& =(g_1\cdot h_1\ast f_1)\ast f_2\ldots f_l\\
+\end{array}$
+
+Si $f_1=h_1^{-1}\cdot g_1^{-1}$ alors il vient que :
+\\$\begin{array}{lll}
+L_{g_1\ast h_1}(f) & =f_2\ldots f_l\\
+& =g_1\ast g_1^{-1}f_2\cdot f_l\\
+& =g_1\ast(h_1\cdot h_1^{-1}\cdot g_1^{-1})\ast f_2\ldots f_l\\
+& =L_{g_1}\circ L_{h_1}(f)\\
+\end{array}$
+
+Sinon, en utilisant l'associativité de la loi $\cdot$ :
+\\$\begin{array}{lll}
+L_{g_1\ast h_1}(f) & =g_1\cdot h_1\cdot f_1\ast f_2\ldots f_l\\
+& =g_1\cdot (h_1\cdot f_1)\ast f_2\ldots f_l\\
+& =g_1\ast h_1\cdot f_1\ast f_2\ldots f_l\\
+& =L_{g_1}\circ L_{h_1}(f)\\
+\end{array}$
+
+\\Et ainsi on a fait tous les cas où $N\leq 1$.\\
+\\
+Hérédité : On suppose l'associativité vérifiée pour un $N$ donné. Alors :
+\\$\begin{array}{lll}
+L_{g\ast h}(f) & =(g\ast h)\ast f\\
+& =(g_1\ldots g_{m-1}\ast((g_m\ast h_1)\ast h_2\ldots h_n))\ast f\\
+& =L_{g_1\ldots g_{m-1}}\corc L_{(g_m\ast h_1)\ast h_2\ldots h_n}(f) & $par hypothèse de récurrence$\\
+& =L_{g_1\ldots g_{m-1}}\circ L_{g_m\ast h_1}\circ L_{h_2\ldots h_n}(f)\\
+& =L_{g_1\ldots g_{m-1}}\circ L_{g_m}\circ L_{h_1}\circ L_{h_2\ldots h_n}(f) & $car c'est vérifié pour $N\leq 1\\
+& =L_g\circ L_h(f)\\
+\end{array}$
+
+\\
+\\Ainsi le lemme est démontré et il en découle que $(\ast_\alpha A_\alpha, \ast)$ est un groupe.
+\end{proof}
+\end{proof}
+
+\begin{defi}
+De $\pi_1(A_\alpha) \subset \pi_1(X)$, on déduit les injections naturelles suivantes :
+\begin{center}
+    $\begin{array}{ccccl}
+j_\alpha & : & \pi_1(A_\alpha) & \to & \pi_1(X) \\
+ & & [f]_{A_\alpha} & \mapsto & [f]_X\\
+\end{array}$
+\end{center}
+
+\\Et ainsi on peut définir :
+\begin{center}
+    $\begin{array}{ccccl}
+\Phi & : & \ast_\alpha A_\alpha & \to & \pi_1(X) \\
+ & & g_1\ldots g_m & \mapsto & j_{\alpha_1}(g_1)\cdot j_{\alpha_2}(g_3)\ldots j_{\alpha_m}(g_m)\\
+\end{array}$
+\end{center}
+
+\end{defi}
+
+\begin{prop}
+$\Phi$ est un homomorphisme.
+\end{prop}
+
+\begin{proof}
+Il suffit de démontrer que les $j_\alpha$ sont des homomorphismes puisque leurs propriétés se transfèrent naturellement à $\Phi$. Soient $f$ et $g$ deux lacets de $A_\alpha$ pour $\alpha \in S$.
+\begin{center}
+    $j_\alpha([f]_{A_\alpha}^{-1})=j_\alpha([f^{-1}]_{A_\alpha})=[f^{-1}]_X=[f]_X^{-1}$
+\end{center}
+
+donc les inverses sont conservés par les $j_\alpha$. De plus :
+\begin{center}
+    $j_\alpha([f]_{A_\alpha}\cdot [g]_{A_\alpha})=j_\alpha([f\centerdot g]_{A_\alpha})=[f\centerdot g]_X=[f]_X\cdot [g]_X$
+\end{center}
+
+Les $j_\alpha$ sont bien des homomorphismes et donc $\Phi$ aussi.
+\end{proof}
+
+\section{Le théorème de Van Kampen}
+
+\begin{theo}
+(Van Kampen, 1933) Si $X$ est une union d'ouverts connexes par arcs $A_\alpha$ tous contenant le point $x_0 \in X$ et si toute intersection $A_\alpha \bigcap A_\beta$ est connexe par arcs, alors l'homomorphisme $\Phi : \ast_\alpha A_\alpha \to \pi_1(X)$ est surjectif. Si de plus toute intersection $A_\alpha \bigcap A_\beta \bigcap A_\gamma$ est connnexe par arcs, alors le noyau de $\Phi$ est le sous-groupe normal $N$ engendré par tous les éléments de la forme $i_{\alpha\beta}(\omega)i_{\beta\alpha}(\omega)^{-1}$ pour $\omega\in\pi_1(A_\alpha\bigcap A_\beta)$, et par conséquent induit un isomorphisme $\pi_1(X)\approx\ast_\alpha \pi_1(A_\alpha)/N$.
+\end{theo}
+
+\begin{proof}
+Sur la surjectivité
+\\Soit $f$ un lacet dans $X$, montrons que sa classe d'équivalence dans $\pi_1(X)$ est dans l'image de $\Phi$. Le lemme du nombre de Lebesgue permet d'obtenir un découpage $0=t_0<\ldots<t_m=1$ de $I$ de telle sorte que chaque $f([t_{i-1};t_i])$ soit contenu dans un $A_{\alpha_i}, \alpha\in S, \forall 1\leq i<m$. Remarquons alors que $f(t_i)\in A_{\alpha_i}\bigcap A_{\alpha_{i+1}}$, ${\forall  1\leq i<m}$. Puisque $A_{\alpha_i}\bigcap A_{\alpha_{i+1}}$ est connexe par arcs par hypothèse, il existe un chemin $g_i$ dans ${A_{\alpha_i}\bigcap A_{\alpha_{i+1}}}$ reliant $f(t_i)$ et $x_0$ pour tout ${i\in \llbracket 1;m-1\rrbracket}$.
+\\En notant $f_i : t\mapsto f(tt_i+(1-t)t_{i-1})$, on a l'homotopie : $f\simeq f_1\centerdot f_2\centerdot\ldots\centerdot f_m$, d'où :
+\\$f\simeq f_1\centerdot g_1\centerdot g_1^{-1}\centerdot f_2\centerdot g_2\centerdot\ldots\centerdot g_{m-1}^{-1}\centerdot f_m$
+\\ Mais :
+$\left\lbrace
+\begin{array}{ll}
+Im(f_1\centerdot g_1)\subset A_{\alpha_1}\\
+Im(g_i^{-1}\centerdot f_{i+1}\centerdot g_{i+1})\subset A_{\alpha_{i+1}}, & \forall 1\leq i \leq m-1\\
+Im(g_{m-1}^{-1}\centerdot f_m)\subset A_{\alpha_{m}}\\
+\end{array}\right.$
+\\Donc :
+\\$[f]=[f_1\centerdot g_1]_X\cdot [g_1^{-1}\centerdot f_2\centerdot g_2]_X\cdot\ldots\cdot [g_{m-1}^{-1}\centerdot f_m]_X=\Phi([f_1\centerdot g_1]_{A_{\alpha_1}} [g_1^{-1}\centerdot f_2\centerdot g_2]_{A_{\alpha_2}}\ldots [g_{m-1}^{-1}\centerdot f_m]_{A_{\alpha_m}})$,
+\\soit : $[f]\in Im(\Phi)$ et $\Phi$ est surjective.
+\end{proof}
