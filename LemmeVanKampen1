@@ -76,7 +76,6 @@
                 Les $A_\alpha$ étant des ouverts et $F$ une application continue, les pré-images $U_\alpha = F^{-1}(A_\alpha)$ sont des ouverts et par conséquent : $\bigcup\limits_{\alpha\in S} U_\alpha$ forme un recouvrement du compact $I\times I$.\\
                 Or, le lemme du nombre de \textsc{Lebesgue} indique qu'il existe un réel strictement positif $r$ tel que pour tout $x$ dans $I\times I$, la boule ouverte $B(x,r)$ est incluse dans un certain ouvert $U_\alpha$. On peut donc découper $I\times I$ en rectangles $R_{ij} := (s_{i-1},s_i)\times(t_{j-1},t_j)$ inclus dans des ouverts $U_\alpha$.\\
                 Avec $s_0<s_1<\ldots<s_m$, $t_1<t_2<\ldots t_n$ et pour tous $i$ et $j$ strictement positifs : $s_i-s_{i-1}<\sqrt{\frac{r}{2}}$ et $t_j-t_{j-1}<\sqrt{\frac{r}{2}}$.\\
-                Avec un tel découpage et pour chaque couple $(i,j)$, il existe un $\alpha\in S$ tel que $F(R_{ij})\subset A_\alpha$. On note alors $A_{ij} := A_\alpha$.\\
                 Quitte à affiner le découpage, on peut supposer que pour tous $i \leq k$ et $j \leq l$, il existe des entiers $k_i$ et $l_j$ tels que :
                 \begin{itemize}[label=\textbullet]
                     \item $F_{|[s_{k_i},s_{k_{i+1}}]\times\{0\}}=f_{i+1}$ pour $0\leq i \leq k-1$.
@@ -97,6 +96,8 @@
                 \end{tabular}\end{table}
                 \renewcommand{\arraystretch}{1}
                 \setlength{\tabcolsep}{5pt}
+                
+                Avec un tel découpage et pour chaque $k$, il existe un $\alpha\in S$ tel que $F(R_{k})\subset A_\alpha$. On note alors $A_{k} := A_\alpha$. Cette notation est utilisée dans la preuve du lemme \ref{1}.
                 
             \subparagraph{Définitions de lacets le long du pavage}~\\
                 Revenons à l'homotopie $F$ qui lie $f_{1}\ldots f_{k}$ et $f'_{1}\ldots f'_{l}$. Étant donné la manière dont on a construit notre pavage, on a que pour tout $k\in\llbracket 1, mn\rrbracket$, il existe $i_k$ et $j_k$ tels que $R_k = R_{i_k j_k}$. On note alors :
@@ -161,7 +162,51 @@
                 Pour terminer cette partie, remarquons que pour tout $k$ : $F_{|\gamma_k}$ est un lacet de point de base $x_0$, homotope à la concaténation d'un certain nombre de $x_i\in\{a_i, b_i, c_i, d_i| i\in\llbracket0,mn\rrbracket\}$. On notera alors $\mathcal{M}(\gamma_k):=(x_1,\ldots,x_p)\in\mathcal{M}$ le mot obtenu en mettant les $x_i$ bout à bout.
                 
             \subparagraph{Équivalence des deux factorisations}
-                Commençons par montrer que $([f_1]_{A_{\alpha_{1}}},\ldots,[f_k]_{A_{\alpha_{k}}})$ est équivalente à $\mathcal{M}(\gamma_0)$ et que $([f'_1]_{A_{\alpha'_{1}}},\ldots,[f'_k]_{A_{\alpha'_{l}}})$ est équivalente à $\mathcal{M}(\gamma_1)$. Ensuite, un on pourra conclure par récurrence en démontrant que pour tout $k\in\llbracket0,mn-1\rrbracket$, $\mathcal{M}(\gamma_k)$ et $\mathcal{M}(\gamma_{k+1})$ sont des factorisations équivalentes.
+                Commençons par montrer que $([f_1]_{A_{\alpha_{1}}},\ldots,[f_k]_{A_{\alpha_{k}}})$ est équivalente à $\mathcal{M}(\gamma_0)$ et que $([f'_1]_{A_{\alpha'_{1}}},\ldots,[f'_k]_{A_{\alpha'_{l}}})$ est équivalente à $\mathcal{M}(\gamma_mn)$. Ensuite, un on pourra conclure par récurrence en démontrant que pour tout $k\in\llbracket0,mn-1\rrbracket$, $\mathcal{M}(\gamma_k)$ et $\mathcal{M}(\gamma_{k+1})$ sont des factorisations équivalentes.
+                
+                \[\begin{array}{lcll}
+                    \mathcal{M}(\gamma_0)   &   \sim    &   ([a_1]_{A_{\alpha_{1}}}, [a_2]_{A_{\alpha_{1}}}, \ldots, [a_{k_1}]_{A_{\alpha_{1}}}, \ldots) &   \text{Par l'égalité 2. de la définition \ref{def}}.                             \\
+                                            &   \sim    &   ([a_1\cdot a_2 \cdot...\cdot a_{k_1}]_{A_{\alpha_1}}, \cdots)                                     &   \text{Par l'égalité 1.}       \\
+                                                &   =       &   ([f_1]_{A_{\alpha_{1}}},\ldots,[f_k]_{A_{\alpha_{k}}})                                              &   \text{Par homotopie.}                                \\~\\
+                    \mathcal{M}(\gamma_mn)  &   \sim    &   ([a_1]_{A_{\alpha'_{1}}}, [a_2]_{A_{\alpha'_{1}}}, \ldots, [a_{k'_1}]_{A_{\alpha'_{1}}}, \ldots) &   \text{Par l'égalité 2.}. \\
+                                            &   \sim    &   ([a_1\cdot a_2 \cdot...\cdot a_{k_1}]_{A_{\alpha'_1}}, \cdots)                                     &   \text{Par l'égalité 1.}     \\
+                                            &   =       &   ([f_1]_{A_{\alpha'_{1}}},\ldots,[f_k]_{A_{\alpha'_{k}}})                                              &   \text{Par homotopie.}
+                \end{array}\]
+                
+                Il nous reste deux cas à traiter pour pouvoir établir une récurrence :
+                \paragraph{k n'est pas un multiple de m.} Et donc $R_{k+1}$ se trouve à droite de $R_k$.
+                \[\begin{array}{lcll}
+                    \mathcal{M}(\gamma_k)   &   =       &   (\ldots, [\overline{b_k}]_{A_{k}}, [a_{k+1}]_{A_{k+1}},\ldots)    &       \\
+                                            &   \sim    &   (\ldots, [d_{k+1}]_{A_{k+1}}, [a_{k+1}]_{A_{k+1}},\ldots)                                    &    \text{Par l'égalité 2. et car $\overline{b_k}=d_{k+1}$}  \\
+                                            &   \sim    &   (\ldots, [d_{k+1}\cdot a_{k+1}]_{A_{k+1}},\ldots) &   \text{Par l'égalité 1.}   \\
+                                            &   =   &   (\ldots, [\overline{c_{k+1}}\cdot \overline{b_{k+1}}]_{A_{k+1}},\ldots)   &   \text{Par homotopie.}  \\
+                                            &   \sim    &   (\ldots, [\overline{c_{k+1}}]_{A_{k+1}},  [\overline{b_{k+1}}]_{A_{k+1}},\ldots)   &   \text{Par l'égalité 1.}\\        
+                                            &   =   &   \mathcal{M}(\gamma_{k+1})
+                \end{array}\]
+                
+                \paragraph{k est un multiple de m.} Et donc $R_{k+1}$ se trouve tout à gauche, sur la ligne au-dessus de $R_k$. On note $l$ l'entier positif tel que $k = lm$. Faisons un schéma pour bien repérer la position des différents rectangles qui interviennent dans le calcul :
+                
+                \renewcommand{\arraystretch}{3}
+                \setlength{\tabcolsep}{1cm}
+                \begin{table}[h]\centering\begin{tabular}{:c:c:c:c:}
+                    \hdashline
+                    $R_{k+1}$ & $R_{k+2}$   & $\hdots$ & $R_{(l+1)m}$ \\  \hdashline
+                    $R_{(l-1)k+1}$ & $R_{(l-1)k+2}$ & $\hdots$ & $R_{k}$ \\  \hdashline
+                \end{tabular}\end{table}
+                \renewcommand{\arraystretch}{1}
+                \setlength{\tabcolsep}{5pt}
+                
+                \[\begin{array}{lcll}
+                    \mathcal{M}(\gamma_k)   &   =   &   ([\overline{c_{(l-1)k+1}}]_{A_{(l-1)k+1}},\ldots)    &       \\
+                                            &   \sim    &  ([a_{k+1}]_{A_{k+1}},\ldots)                                    &    \text{Par l'égalité 2. et car $\overline{c_{(l-1)k+1}}=a_{k+1}$.}  \\
+                                            &   =       &   ([d_{k+1}\cdot a_{k+1}]_{A_{k+1}},\ldots) &   \text{Car $d_{k+1}$ est homotope au lacet constant en $x_0$.}   \\
+                                            &   =   &   ([\overline{c_{k+1}}\cdot \overline{b_{k+1}}]_{A_{k+1}},\ldots)   &   \text{Par homotopie.}  \\
+                                            &   \sim    &   ([\overline{c_{k+1}}]_{A_{k+1}},  [\overline{b_{k+1}}]_{A_{k+1}},\ldots)   &   \text{Par l'égalité 1.}\\        
+                                            &   =   &   \mathcal{M}(\gamma_{k+1})
+                \end{array}\]
+                
+                Puisque l'équivalence des factorisations est transitive, on conclu par récurrence en $mn$ pas que \\$([f_1]_{A_{\alpha_{1}}},\ldots,[f_k]_{A_{\alpha_{k}}})$ et $([f'_1]_{A_{\alpha'_{1}}},\ldots,[f'_k]_{A_{\alpha'_{l}}})$ sont bien équivalentes.\\
+                Ceci conclu la preuve du lemme \ref{1}.
     \end{proof}
     
     \begin{proof} (Du lemme \ref{2})~\\
