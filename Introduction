@@ -1,0 +1,125 @@
+
+\section{Introduction}
+
+On note $I$ l'intervalle unité $[0,1]$. $X$ désgine un espace topologique.
+
+\begin{defi}
+On appelle $chemin$ d'un espace topologique $X$ toute application continue ${f : I \rightarrow X }$.
+\end{defi}
+
+\begin{defi}
+On appelle $lacet$ d'un espace topologique $X$ basé au point $x_0 \in X$ un chemin de $x_0$ à $x_0$. C'est donc une application continue $f:I \rightarrow X $ avec $f(0) = f(1)$.
+\end{defi}
+
+\begin{defi}
+Soient $f$ et $g$ deux chemins d'un espace topologique $X$ tels que $f(1) = g(0)$. On appelle $concat$\textit{\'{e}}$nation$ des chemins la loi $\centerdot$ telle que $f \centerdot g$ soit un chemin qui traverse d'abord $f$ puis $g$, défini par la formule suivante :
+\begin{center}
+$f \centerdot g (s) = \left\lbrace
+\begin{array}{ll}
+f(2s),  & 0 \leq s \leq 1/2\\
+g(2s-1), & 1/2 \leq s \leq 1\\
+\end{array}\right.$
+\end{center}
+\end{defi}
+
+\begin{defi}
+On appelle $homotopie$ de chemins d'un espace $X$ une famille de chemins ${ f_t:I \rightarrow X}$, $0 \leq t \leq 1$, tels que :
+\\ $i)$ $\forall$ $0 \leq t \leq 1$, $f_t(0) = x_0$ et $f_t(1) = x_1$ fixés.
+\\ $ii)$ L'application associée $F(s,t) = f_t(s)$ est continue.
+\\Deux chemins $f$ et $g$ connectés par une homotopie sont dits $homotopes$ et on note $f \simeq g$.
+\end{defi}
+
+\begin{prop}
+Dans un espace topologique $X$, la relation d'homotopie entre chemins à extrémités fixées est une relation d'équivalence.
+\end{prop}
+
+\begin{defi}
+La $classe$ $d'homotopie$ d'un chemin $f$, notée $[f]$, est la classe d'équivalence du chemin $f$ par la relation d'homotopie.
+\end{defi}
+
+\begin{defi}
+On appelle $groupe$ $fondamental$ d'un espace $X$ au point $x_0$, noté $\pi_1(X,x_0)$, le groupe de l'ensemble des classes d'homotopies $[f]$ des lacets $f : I \rightarrow X$ basés au points $x_0$, avec la loi produit $[f]\cdot [g]=[f \centerdot g]$ où $\centerdot$ est la concaténation des chemins.
+\\On dira que $X$ est de $groupe$ $fondamental$ $trivial$ si et seulement si $\forall x_0$$\in$$X$, ${\pi_1(X,x_0)=0 \Leftrightarrow \forall f : I \rightarrow X}$ lacet en $x_0$, $f\simeq c_0$ avec $c_0$ le lacet constant au point $x_0$.
+\end{defi}
+
+\begin{defi}
+Un espace $X$ est $connexe$ $par$ $arcs$ si et seulement si tout couple de points de $X$ est relié par un chemin dont le support est inclus dans $X$.
+\end{defi}
+
+\begin{defi}
+On dit qu'un espace $X$ est $simplement$ $connexe$ s'il est connexe par arcs et de groupe fondamental trivial.
+\end{defi}
+
+\begin{prop}
+Un espace est simplement connexe si et seulement si il existe une unique classe d'homotopies de chemins reliant tout couple de points.
+\end{prop}
+
+\begin{proof}
+Supposons que $X$ soit simplement connexe. Alors :
+\\$\cdot$ $\forall x_0, x_1$$\in$$X$, ${\exists f : I \rightarrow X}$, chemin tel que $f(0) = x_0$ et $f(1) = x_1$,
+\\$\cdot$ $\forall x_0$$\in$$X$, ${\pi_1(X,x_0)=0 \Leftrightarrow \forall f : I \rightarrow X}$ lacet en $x_0$, $f\simeq c_0$ avec $c_0$ le lacet constant au point $x_0$.
+\\Montrons qu'il existe une unique classe d'homotopies de chemins connectant n'importe quelle paire de points de l'espace $X$.
+\\Soient $x_0$ et $x_1$ dans $X$ quelconques. Puisque $X$ est connexe par arcs, alors il existe au moins un chemin  $f : I \rightarrow X$ reliant $x_0$ et $x_1$. Il reste à montrer que la classe $[f]$ de $f$ est unique, i.e. : ${\forall g : I \rightarrow X}$ chemin de $X$ tel que $g(0) = x_0$ et $g(1) = x_1$, $g\simeq f$.
+\\Ainsi soit un tel chemin ${g : I \rightarrow X}$ et notons $\overline{g}$ le chemin inverse de $g$ :
+\\$\begin{array}{ccccl}
+\overline{g} & : & I & \to & X \\
+ & & s & \mapsto & g(1-s)\\
+\end{array}$
+\\
+\\Si on note $c_1$ le lacet constant au point $x_1$, remarquons que $f\simeq f\centerdot c_1$ par l'homotopie suivante :
+\begin{center}
+$H(s,t) = \left\lbrace
+\begin{array}{ll}
+f(\frac{2s}{2-t}),  & 0 \leq s \leq 1-t/2\\
+c_1(\frac{2(s-1)}{t}+1), & 1-t/2 \leq s \leq 1, t\neq 0\\
+\end{array}\right.$
+\end{center}
+En effet, on a bien $\forall$ $0 \leq t \leq 1$, $H(0,t) = f(0) = x_0$ et $H(1,t) = x_1$. De plus, pour $s = 1-t/2$, $t\neq 0$, ${f(\frac{2s}{2-t}) = f(1) = x_1 = c_1(0) = c_1(\frac{2(s-1)}{t}+1)}$ et à $s$ fixé, $H(s,0) = f(s)$ et :
+\begin{center}
+$H(s,1) = \left\lbrace
+\begin{array}{ll}
+f(2s),  & 0 \leq s \leq 1/2\\
+c_1(2s-1), & 1/2 \leq s \leq 1\\
+\end{array}\right.$
+\end{center}
+Autrement dit, $H(s,1) = f\centerdot c_1$.
+\\$H : I\times I\rightarrow X$ est continue, c'est donc une homotopie reliant $f$ et $ f\centerdot c_1$.
+\\
+\\De même, Si on note $c_0$ le lacet constant au point $x_0$, remarquons que $c_0\centerdot g\simeq g$ par l'homotopie suivante :
+\begin{center}
+$F(s,t) = \left\lbrace
+\begin{array}{ll}
+c_0(\frac{2s}{1-t}),  & 0 \leq s \leq (1-t)/2, t\neq 1\\
+g(\frac{2(s-1)}{1+t}+1), & (1-t)/2 \leq s \leq 1\\
+\end{array}\right.$
+\end{center}
+En effet, on a bien $\forall$ $0 \leq t \leq 1$, $F(0,t) = x_0$ et $F(1,t) = x_1$. De plus, pour $s = (1-t)/2$, $t\neq 1$, ${c_0(\frac{2s}{1-t}) = c_0(1) = x_0 = g(0) = g(\frac{2(s-1)}{1+t}+1)}$ et à $s$ fixé, $F(s,1) = g(s)$ et :
+\begin{center}
+$F(s,0) = \left\lbrace
+\begin{array}{ll}
+c_0(2s),  & 0 \leq s \leq 1/2\\
+g(2s-1), & 1/2 \leq s \leq 1\\
+\end{array}\right.$
+\end{center}
+Autrement dit, $F(s,0) = c_0 \centerdot g(s)$.
+\\$F : I\times I\rightarrow X$ est continue, c'est donc une homotopie reliant $c_0 \centerdot g(s)$ et $g$.
+\\
+\\Enfin, ajoutons que $f\centerdot\overline{g}$ et $\overline{g} \centerdot g$ sont des lacets en $x_0$ et $x_1$ respectivement puisque $f(0)=x_0$, $f(1) = x_1 = \overline{g}(0)$, $\overline{g}(1) = x_0 = g(0)$ et $g(1) = x_1$.
+\\
+\\Finalement, il vient que :
+\\$\begin{array}{lll}
+f & \simeq f\centerdot c_1\\
+& \simeq f\centerdot(\overline{g} \centerdot g) & \qquad \textrm{car $X$ est de groupe fondamental trivial}\\
+& \simeq (f\centerdot\overline{g}) \centerdot g & \qquad \textrm{par reparamétrisation}\\
+& \simeq c_0\centerdot g & \qquad \textrm{car $X$ est de groupe fondamental trivial}\\
+& \simeq g\\
+\end{array}$
+\\
+\\Il existe donc une unique classe d'homotopies de chemins connectant deux points quelconques de $X$.
+
+
+\paragraph{} 
+~~\\Réciproquement, supposons que pour toute paire de points de $X$ il existe une unique classe d'homotopies de chemins les connectant. Montrons que $X$ est simplement connexe.
+\\Soient $x_0$ et $x_1$ dans $X$ quelconques. Puisqu'il existe une classe d'homotopies de chemins les connectant, c'est qu'il existe au moins un chemin les connectant et donc $X$ est connexe par arcs.
+\\Il reste à montrer que $X$ est de groupe fondamental trivial. Soit $x_0$ dans $X$ quelconque. Le lacet constant en $x_0$ noté $c_0$ est un chemin de $x_0$ à $x_0$. En appliquant l'hypothèse, il vient que ${\forall f : I \rightarrow X}$ lacet en $x_0$, $f\simeq c_0$ et donc tous les lacets basés en $x_0$ sont homotopes au lacet constant $c_0$. Autrement dit $\forall x_0$$\in$$X$, ${\pi_1(X,x_0)=0}$ et $X$ est simplement connexe.
+\end{proof}
