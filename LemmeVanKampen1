@@ -1,18 +1,18 @@
 \subsection{Version complète du théorème}
-	Nous venons de démontrer la première partie du théorème de Van Kampen, qui assure la surjectivité de $\Phi$. Vient à présent le théorème dans sa forme complète :
-	\begin{theo}[Théorème de \textsc{Van Kampen} (Complet)]~\\
-  	Soit $X$ un espace topologique et $x_0 \in X$, $(A_\alpha)_{\alpha\in S}$ une famille d'ouverts tels que :
-		\begin{itemize}[label=\textbullet]
-			\item $x_0 \in A_\alpha \cap A_\beta$ pour tous $\alpha$ et $\beta$ dans $S$.
-			\item $\bigcup\limits_{\alpha\in S}A_\alpha = X$.
-		\end{itemize}
-		Soit $\Phi$ DEF\\
-		Alors si $A_\alpha \cap A_\beta$ est connexe par arcs pour tous $\alpha$ et $\beta$ dans $S$, $\Phi$ est surjective.\\
-		De plus, si $A_\alpha \cap A_\beta \cap A_\gamma$ est connexe par arcs pour tous $\alpha$, $\beta$ et $\gamma$ dans $S$, le noyau de $\Phi$ est exactement le sous-groupe distingué $N:=<<i_{\alpha\beta}(w)i_{\beta\alpha}(w)^{-1} | w\in\Pi_{1}(A_\alpha \cap A_\beta), (\alpha, \beta)\in S^2>>$. En définissant pour tous $\alpha$ et $\beta$ dans $S$ les applications :
-		\[\begin{array}{l|ccl}
-			i_{\alpha\beta} :   &   \Pi_1 (A_\alpha \cap A_\beta)       &   \longrightarrow &   \Pi_1 (A_\alpha)    \\
-													&   [w]_{\Pi_1 (A_\alpha \cap A_\beta)} &   \longmapsto     &   [w]_{\Pi_1 (A_\alpha)}
-		\end{array}\]
+    Nous venons de démontrer la première partie du théorème de Van Kampen, qui assure la surjectivité de $\Phi$. Vient à présent le théorème dans sa forme complète :
+    \begin{theo}[Théorème de \textsc{Van Kampen} (Complet)]~\\
+        Soit $X$ un espace topologique et $x_0 \in X$, $(A_\alpha)_{\alpha\in S}$ une famille d'ouverts tels que :
+        \begin{itemize}[label=\textbullet]
+            \item $x_0 \in A_\alpha \cap A_\beta$ pour tous $\alpha$ et $\beta$ dans $S$.
+            \item $\bigcup\limits_{\alpha\in S}A_\alpha = X$.
+        \end{itemize}
+        Soit $\Phi$ DEF\\
+        Alors si $A_\alpha \cap A_\beta$ est connexe par arcs pour tous $\alpha$ et $\beta$ dans $S$, $\Phi$ est surjective.\\
+        De plus, si $A_\alpha \cap A_\beta \cap A_\gamma$ est connexe par arcs pour tous $\alpha$, $\beta$ et $\gamma$ dans $S$, le noyau de $\Phi$ est exactement le sous-groupe distingué $N:=<<i_{\alpha\beta}(w)i_{\beta\alpha}(w)^{-1} | w\in\Pi_{1}(A_\alpha \cap A_\beta), (\alpha, \beta)\in S^2>>$. En définissant pour tous $\alpha$ et $\beta$ dans $S$ les applications :
+        \[\begin{array}{l|ccl}
+                    i_{\alpha\beta} :   &   \Pi_1 (A_\alpha \cap A_\beta)       &   \longrightarrow &   \Pi_1 (A_\alpha)    \\
+                                        &   [w]_{\Pi_1 (A_\alpha \cap A_\beta)} &   \longmapsto     &   [w]_{\Pi_1 (A_\alpha)}
+        \end{array}\]
         En particulier, ceci implique l'existence d'un isomorphisme $\overline{\Phi}$ décrit par le diagramme commutatif suivant :
         \[\begin{tikzcd}[sep=huge]
             \ast_\alpha A_\alpha\arrow[two heads, r, "\Phi"]\arrow[hook, d] &   \Pi_1 (X)   \\
@@ -40,7 +40,7 @@
     \begin{defi}[Equivalence de factorisations]\label{def}~\\
         Soit $\mathcal{M}$ l'ensemble des listes finies d'éléments de $\bigcup\limits_{\alpha\in S} \Pi_1 (A_\alpha)$. \\
         Remarquons que $\ast_\alpha A_\alpha$ est un sous-ensemble de $\mathcal{M}$.\\
-        Pour tout lacet $f$ évoluant dans $X$, on appelle factorisation de $[f]_X$ tout élément $([f_1]_{A_{\alpha_{1}}},\ldots,[f_k]_{A_{\alpha_{k}}})$ de $\mathcal{M}$ tel que $\Phi\circ\Psi(([f_1]_{A_{\alpha_{1}}},\ldots,[f_k]_{A_{\alpha_{k}}})) = [f]_X$. On notera $\mathcal{M}(f)$ l'ensemble des factorisations de $f$.\\
+        Pour tout lacet $f$ évoluant dans $X$, on appelle factorisation de $[f]_X$ tout élément $([f_1]_{A_{\alpha_{1}}},\ldots,[f_k]_{A_{\alpha_{k}}})$ de $\mathcal{M}$ tel que $\Phi\circ\Psi(([f_1]_{A_{\alpha_{1}}},\ldots,[f_k]_{A_{\alpha_{k}}})) = [f]_X$.\\
         On remarque que les surjectivités de $\Phi$ et $\Psi$ impliquent que tout élément de $\mathcal{M}$ est factorisation d'un élément de $\Pi_1 (X)$.
         
         Dans $\mathcal{M}$, on définit par induction une relation d'équivalence. Deux factorisations $([f_1]_{A_{\alpha_1}} ,\ldots, [f_k]_{A_{\alpha_k}})$ et $g$ sont équivalentes si on a une des deux égalités :
@@ -66,7 +66,7 @@
 
     Comme $N$ est un groupe distingué, "$g.h^{-1}\in N$" revient à dire que $g$ et $h$ sont placés dans la même classe d'équivalence lors du passage au quotient $\ast_\alpha A_\alpha\hookrightarrow\faktor{\ast_\alpha A_\alpha}{N}$. Les lemmes \ref{1} et \ref{2} garantissent donc bien la véracité du théorème de \textsc{Van Kampen}.
     
-    \begin{proof} (Du lemme \ref{1})
+    \begin{proof} (Du lemme \ref{1})~\\
         Pour le résultat $\Phi\circ\Psi(g)=\Phi\circ\Psi(h)\leftarrow g\sim h$, il suffit de remplacer $g$ par sa valeur dans les égalités 1. et 2. de la définition \ref{def}. En composant par $\Psi$ puis $\Phi$, on obtient immédiatement le résultat. Deux mots équivalents sont donc factorisation d'un même objet, par définition d'une factorisation.
         
         Pour la réciproque, nous allons démontrer que deux factorisations d'un même élément $[f]_{A_{\alpha}}$ sont équivalentes en construisant des factorisations intermédiaires, toutes équivalentes entre elles. Ceci se fait en trois étapes. D'abord, nous découperons l'intervalle $I\times I$ de la même manière que pour la preuve de la surjectivité, afin d'isoler des "morceaux" de lacet qui nous conviennent. Ensuite, nous utiliserons le pavage obtenu pour créer de multiples lacets intermédiaires, ce sera l'occasion de faire plusieurs remarques. Enfin, nous montrerons qu'il est possible de passer d'une factorisation à l'autre en utilisant uniquement les égalités 1. et 2. de la définition \ref{def}. Ceci permettra de conclure la preuve.
@@ -87,15 +87,83 @@
                 Maintenant qu'on a ce pavage, on renomme les rectangles comme dans la figure ci-dessous :
                 \renewcommand{\arraystretch}{3}
                 \setlength{\tabcolsep}{0.1cm}
-                \begin{table}[h]\centering\begin{tabular}{|p{.cm}cp{2cm}cp{2cm}cp{2cm}|}
-									\hline
-									$R_{m(n-1)+1}$	&	\multicolumn{1}{|c}{}	&	$R_{m(n-1)+2}$	&	\multicolumn{1}{|c}{}	&	\multicolumn{1}{c}{$\hdots$}	&   \multicolumn{1}{|c}{}   &       $R_{mn}$            \\  \hline
-									$R_{m(n-2)+1}$      &   \multicolumn{1}{c|}{}   &   $R_{m(n-2)+2}$      &   \multicolumn{1}{c|}{}   &  \multicolumn{1}{c}{$\hdots$}   &   \multicolumn{1}{c|}{}   &   $R_{m(n-1)}$        \\  \hline\multicolumn{1}{|c}{$\vdots$}  &   \multicolumn{1}{|c}{}   &   \multicolumn{1}{c}{$\vdots$}  &   \multicolumn{1}{|c}{}   &     &   \multicolumn{1}{|c}{}   &   \multicolumn{1}{c|}{$\vdots$}  \\  \hline
+                \begin{table}[h]\centering\begin{tabular}{|p{2cm}cp{2cm}cp{2cm}cp{2cm}|}
+                    \hline
+                    $R_{m(n-1)+1}$      &   \multicolumn{1}{|c}{}   &   $R_{m(n-1)+2}$      &   \multicolumn{1}{|c}{}   &  \multicolumn{1}{c}{$\hdots$}   &   \multicolumn{1}{|c}{}   &       $R_{mn}$            \\  \hline
+                    $R_{m(n-2)+1}$      &   \multicolumn{1}{c|}{}   &   $R_{m(n-2)+2}$      &   \multicolumn{1}{c|}{}   &  \multicolumn{1}{c}{$\hdots$}   &   \multicolumn{1}{c|}{}   &   $R_{m(n-1)}$        \\  \hline
+                    \multicolumn{1}{|c}{$\vdots$}  &   \multicolumn{1}{|c}{}   &   \multicolumn{1}{c}{$\vdots$}  &   \multicolumn{1}{|c}{}   &     &   \multicolumn{1}{|c}{}   &   \multicolumn{1}{c|}{$\vdots$}  \\  \hline
                     $R_{m+1}$           &   \multicolumn{1}{c|}{}   &   $R_{m+2}$           &   \multicolumn{1}{c|}{}   &   \multicolumn{1}{c}{$\hdots$}  &   \multicolumn{1}{c|}{}   &       $R_{2m}$            \\  \hline
                     $R_1$               &   \multicolumn{1}{|c}{}   &   $R_2$               &   \multicolumn{1}{|c}{}   &   \multicolumn{1}{c}{$\hdots$}  &   \multicolumn{1}{|c}{}   &   $R_m$   \\  \hline
                 \end{tabular}\end{table}
+                \renewcommand{\arraystretch}{1}
+                \setlength{\tabcolsep}{5pt}
+                
+            \subparagraph{Définitions de lacets le long du pavage}~\\
+                Revenons à l'homotopie $F$ qui lie $f_{1}\ldots f_{k}$ et $f'_{1}\ldots f'_{l}$. Étant donné la manière dont on a construit notre pavage, on a que pour tout $k\in\llbracket 1, mn\rrbracket$, il existe $i_k$ et $j_k$ tels que $R_k = R_{i_k j_k}$. On note alors :
+                
+                \begin{table}[ht]\centering\begin{tabular}{ll}
+                    $\begin{array}{l|ccl}
+                        \text{\quad \textbullet \quad}a'_k : &   I   &   \longrightarrow &   F(R_k)  \\
+                                                            &   s   &   \longmapsto     &   F(s.s_{i_{k}} + (1-s)s_{i_{k-1}}, t_{j_{k-1}})
+                    \end{array}$&$\begin{array}{l|ccl}
+                        \text{\quad \textbullet \quad}b'_k : &   I   &   \longrightarrow &   F(R_k)  \\
+                                                            &   t   &   \longmapsto     &   F(s_{i_k}, t.t_{j_{k}} + (1-t)t_{j_{k-1}})
+                    \end{array}$\\\\$\begin{array}{l|ccl}
+                        \text{\quad \textbullet \quad}c'_k : &   I   &   \longrightarrow &   F(R_k)  \\
+                                                            &   s   &   \longmapsto     &   F(s.s_{i_{k-1}} + (1-s)s_{i_{k}}, t_{j_{k}}) 
+                    \end{array}$&$\begin{array}{l|ccl}
+                        \text{\quad \textbullet \quad}d'_k : &   I   &   \longrightarrow &   F(R_k)  \\
+                                                            &   t   &   \longmapsto     &   F(s_{i_{k-1}}, t.t_{j_{k-1}} + (1-t)t_{j_{k}})
+                    \end{array}$
+                \end{tabular}\end{table}
+                
+                On peut représenter les chemins ainsi définis autour d'un rectangle $R_k$ donné :
+                \[\begin{tikzcd}
+                    (s_{i_{k-1}}, t_{j_{k}})\arrow[dd, "d'_k" description] & & (s_{i_{k}}, t_{j_{k}})\arrow[ll, "c'_k" description] \\
+                    &R_k& \\
+                    (s_{i_{k-1}}, t_{j_{k-1}})\arrow[rr, "a'_k" description] & & (s_{i_{k}}, t_{j_{k-1}})\arrow[uu, "b'_k" description]
+                \end{tikzcd}\]
+                
+                On définit $V:=\{F(s_i,t_j)|(i,j)\in\llbracket0, m\rrbracket\times\llbracket0, n\rrbracket\}$ l'ensemble des images des coins de tous les pavés. Remarquons que, par construction du pavage, chaque élément de $V$ se trouve à l'intersection d'au plus trois images de pavés, chacune contenue dans un $A_\alpha$, $\alpha\in S$. Comme pour tous $(\alpha,\beta,\gamma)\in S^3$ les intersections $A_\alpha\cap A_\beta\cap A_\gamma$ sont connexes par arcs, on peut définir pour tout $v_{s_i t_j}:=F(s_i, t_j)\in V$ un chemin $g_{v_{s_i t_j}}$ dans $A_\alpha\cap A_\beta\cap A_\gamma$ reliant $v_{s_i t_j}$ et $x_0$. On va chercher à utiliser une méthode similaire à celle de la preuve de la surjectivité de $\Phi$.\\
+                Pour simplifier les notations, on définit :
+                \begin{itemize}[label = \textbullet]
+                    \item $a_k = g_{v_{i_{k-1} j_{k-1}}}\cdot a'k\cdot\overline{g_{v_{i_k j_{k-1}}}}$
+                    \item $b_k = g_{v_{i_{k} j_{k-1}}}\cdot b'k\cdot\overline{g_{v_{i_k j_{k}}}}$
+                    \item $c_k = g_{v_{i_{k}j_{k}}}\cdot c'k\cdot\overline{g_{v_{i_{k-1} j_{k-1}}}}$
+                    \item $d_k = g_{v_{i_{k}j_{k}}}\cdot d'k\cdot\overline{g_{v_{i_{k-1} j_{k-1}}}}$
+                \end{itemize}
+                Cela revient à "fermer" les chemins $a'_k$, $b'_k$, $c'_k$ et $d'_k$ pour en faire des lacets au point de base $x_0$.\\
+                Pour terminer ces définitions, on introduit une dernière famille de chemins, indexés par $k$ :
+                \[\begin{array}{l|ccl}
+                    \gamma_k :  &   I   &   \longrightarrow &   I\times I   \\
+                                &   r   &   \longmapsto     &   
+                                \left\{\begin{array}{ll}
+                                    (3r.s_{i_k},t_{j_k})                                                    &   \text{si $r\leq \frac{1}{3}$}                   \\
+                                    (s_{i_k},3(r-\frac{1}{3})t_{j_{k-1}} + (1- 3(r-\frac{1}{3}))t_{j_k})    &   \text{si $\frac{1}{3}\leq r\leq \frac{2}{3}$}   \\
+                                    (3(r-\frac{2}{3}) + (1-3(r-\frac{2}{3}))s_{i_k}, t_{j_{k-1}})           &   \text{si $\frac{2}{3}\leq r\leq 1$}              \\
+                                \end{array}\right.
+                \end{array}\]
+                Autrement dit, pour un $k$ choisi, $\gamma_k$ est le chemin qui traverse le pavage de la gauche vers la droite tel que les $k$ premiers pavés sont en-dessous de lui et les autres au-dessus. On a tracé ci-dessous, pour l'illustration, le chemin $\gamma_{10}$ pour un pavage de taille $4\times5$.
+                
+               \renewcommand{\arraystretch}{3}
+                \setlength{\tabcolsep}{1cm}
+                \begin{table}[h]\centering\begin{tabular}{:c:c:c:c:}
+                    \hdashline
+                    $R_{17}$ & $R_{18}$                               & $R_{19}$ & $R_{20}$ \\  \hdashline
+                    $R_{13}$ & $R_{14}$                               & $R_{15}$ & $R_{16}$ \\ \cline{1-2 ~$\gamma_{10}$~}\cdashline{3-4}
+                    $R_{10}$ & \multicolumn{1}{c|}{\textbf{$R_{1}$}} & $R_{11}$ & $R_{12}$ \\ \cdashline{1-2}\cline{3-4} 
+                    $R_{5}$ & $R_{6}$                               & $R_{7}$ & $R_{8}$ \\  \hdashline
+                    $R_{1}$ & $R_{2}$                               & $R_{3}$ & $R_{4}$ \\  \hdashline
+                \end{tabular}\end{table}
+                \renewcommand{\arraystretch}{1}
+                \setlength{\tabcolsep}{5pt}
+                
+                Pour terminer cette partie, remarquons que pour tout $k$ : $F_{|\gamma_k}$ est un lacet de point de base $x_0$, homotope à la concaténation d'un certain nombre de $x_i\in\{a_i, b_i, c_i, d_i| i\in\llbracket0,mn\rrbracket\}$. On notera alors $\mathcal{M}(\gamma_k):=(x_1,\ldots,x_p)\in\mathcal{M}$ le mot obtenu en mettant les $x_i$ bout à bout.
+                
+            \subparagraph{Équivalence des deux factorisations}
+                Commençons par montrer que $([f_1]_{A_{\alpha_{1}}},\ldots,[f_k]_{A_{\alpha_{k}}})$ est équivalente à $\mathcal{M}(\gamma_0)$ et que $([f'_1]_{A_{\alpha'_{1}}},\ldots,[f'_k]_{A_{\alpha'_{l}}})$ est équivalente à $\mathcal{M}(\gamma_1)$. Ensuite, un on pourra conclure par récurrence en démontrant que pour tout $k\in\llbracket0,mn-1\rrbracket$, $\mathcal{M}(\gamma_k)$ et $\mathcal{M}(\gamma_{k+1})$ sont des factorisations équivalentes.
     \end{proof}
     
-    \begin{proof} (Du lemme \ref{2})
-    
+    \begin{proof} (Du lemme \ref{2})~\\
+    a
     \end{proof}
